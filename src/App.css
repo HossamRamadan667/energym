@@ -1,38 +1,76 @@
-.App {
+/* Start vars */
+:root {
+  --primaryColor: #f8bc1a;
+  --secondaryColor: #3c0e78;
+  --blackColor: #151615;
+}
+/* End vars */
+
+/* Start global */
+* {
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Poppins", sans-serif;
+  /* just for development mode */
+  background-color: black;
+}
+/* End global */
+
+/* Start Header */
+
+header {
+  background-color: white;
+}
+
+header .logo {
+  width: 50px;
+  aspect-ratio: 1/1;
+}
+header .logo img {
+  width: 100%;
+  height: 100%;
+}
+header .container {
+  position: relative;
+}
+header i {
+  color: var(--primaryColor);
+  margin-inline-end: 0.5rem;
+}
+header i + p {
+  margin-bottom: 0;
+}
+/* Start nav */
+nav {
+  background-color: var(--primaryColor);
+  position: absolute !important;
+  width: 100%;
+  top: 100%;
+  left: 0%;
+  clip-path: polygon(0 0, 100% 0%, 95% 100%, 5% 100%);
+}
+nav .navbar-toggler,
+nav .navbar-toggler i,
+nav .navbar-toggler:focus {
+  border: 0;
+  outline: 0;
+  color: white;
+  box-shadow: none;
+}
+
+nav .nav-link {
+  color: var(--blackColor);
+  transition: color 0.5s ease;
   text-align: center;
+  margin: 0 1rem ;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+nav .navbar-nav .nav-link.active,
+nav .nav-link:hover {
   color: white;
 }
+/* End nav */
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+/* End header */
