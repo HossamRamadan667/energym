@@ -1,76 +1,405 @@
 /* Start vars */
 :root {
-  --primaryColor: #f8bc1a;
-  --secondaryColor: #3c0e78;
-  --blackColor: #151615;
+	--primaryColor: #f8bc1a;
+	--primaryColor-50: #e4ae1986;
+	--primaryColor-s-10: #e4ae19;
+	--secondaryColor: #3c0e78;
+	--secondaryColor-50: #3c0e788e;
+	--blackColor: #151615;
+	--whiteColor: #f4f3f3;
+	/* edit on swiper vars */
+	--swiper-pagination-color: var(--primaryColor);
+	--swiper-pagination-bullet-inactive-color: var(--blackColor);
 }
+
 /* End vars */
 
 /* Start global */
 * {
-  margin: 0 0 0 0;
-  padding: 0 0 0 0;
-  box-sizing: border-box;
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+	box-sizing: border-box;
 }
 body {
-  font-family: "Poppins", sans-serif;
-  /* just for development mode */
-  background-color: black;
+	font-family: "Poppins", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: bold;
+}
+p {
+	margin: 0;
+}
+a {
+	text-decoration: none;
+}
+.btn {
+	padding: 0.5rem 1rem;
+	min-width: 10rem;
+}
+
+.btn.primary {
+	background-color: var(--primaryColor);
+	color: var(--whiteColor);
+	transition: all 0.5s ease;
+}
+
+.btn.primary:hover {
+	background-color: transparent;
+	border: 1px solid var(--primaryColor);
+	color: var(--primaryColor);
+}
+
+.btn.secondary-w {
+	background-color: var(--whiteColor);
+	color: var(--blackColor);
+	transition: all 0.5s ease;
+}
+
+.btn.secondary-w:hover {
+	background-color: transparent;
+	border: 1px solid white;
+	color: var(--whiteColor);
+}
+
+.btn.secondary-b {
+	background-color: var(--blackColor);
+	color: var(--whiteColor);
+	transition: all 0.5s ease;
+	width: fit-content;
+}
+
+.btn.secondary-b:hover {
+	background-color: transparent;
+	border: 1px solid var(--blackColor);
+	color: var(--blackColor);
+}
+
+.sectionTitle {
+	margin: 1rem 0;
+	position: relative;
+	font-size: 2rem;
+	font-weight: bold;
+}
+
+.sectionTitle::after {
+	content: "";
+	width: 2.5rem;
+	height: 7px;
+	border-radius: 10px;
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: var(--primaryColor);
+	position: absolute;
+	bottom: -10px;
+}
+.iconCircle {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 3rem;
+	aspect-ratio: 1/1;
+	background-color: var(--whiteColor);
+	color: var(--blackColor);
+	border-radius: 50%;
+}
+@media (max-width: 576px) {
+	:root {
+		font-size: 12px;
+	}
 }
 /* End global */
 
 /* Start Header */
 
 header {
-  background-color: white;
+	background-color: var(--whiteColor);
 }
 
 header .logo {
-  width: 50px;
-  aspect-ratio: 1/1;
+	width: 50px;
+	aspect-ratio: 1/1;
 }
+
 header .logo img {
-  width: 100%;
-  height: 100%;
+	width: 100%;
+	height: 100%;
 }
-header .container {
-  position: relative;
-}
+
 header i {
-  color: var(--primaryColor);
-  margin-inline-end: 0.5rem;
+	color: var(--primaryColor);
+	margin-inline-end: 0.5rem;
 }
+
 header i + p {
-  margin-bottom: 0;
+	margin-bottom: 0;
 }
+
 /* Start nav */
 nav {
-  background-color: var(--primaryColor);
-  position: absolute !important;
-  width: 100%;
-  top: 100%;
-  left: 0%;
-  clip-path: polygon(0 0, 100% 0%, 95% 100%, 5% 100%);
+	background-color: var(--primaryColor);
+	width: 100%;
+	top: 100%;
+	left: 0%;
+	clip-path: polygon(0 0, 100% 0%, 95% 100%, 5% 100%);
+	z-index: 10;
 }
+
 nav .navbar-toggler,
 nav .navbar-toggler i,
 nav .navbar-toggler:focus {
-  border: 0;
-  outline: 0;
-  color: white;
-  box-shadow: none;
+	border: 0;
+	outline: 0;
+	color: var(--whiteColor);
+	box-shadow: none;
 }
 
 nav .nav-link {
-  color: var(--blackColor);
-  transition: color 0.5s ease;
-  text-align: center;
-  margin: 0 1rem ;
+	color: var(--blackColor);
+	transition: color 0.5s ease;
+	text-align: center;
+	margin: 0 1rem;
 }
+
 nav .navbar-nav .nav-link.active,
 nav .nav-link:hover {
-  color: white;
+	color: var(--whiteColor);
 }
-/* End nav */
 
+/* End nav */
 /* End header */
+
+/* Start HeroSection */
+section#hero {
+	background-size: cover;
+	padding: 5rem 0;
+	height: 90vh;
+}
+
+section#hero .sliderContent > :first-child {
+	width: 50%;
+}
+
+section#hero .sliderContent > :first-child h3 {
+	color: var(--primaryColor);
+}
+
+section#hero .sliderContent > :first-child h2 {
+	color: var(--whiteColor);
+	font-size: 4rem;
+	text-transform: uppercase;
+}
+
+section#hero .swiper .CarouselControllers {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	transform: translateY(-50%);
+	z-index: 10;
+}
+
+section#hero .swiper .CarouselControllers > .btn {
+	min-width: 0;
+	width: 3rem;
+	padding: 10px;
+	color: var(--primaryColor);
+	background-color: transparent;
+	border: 1px solid var(--primaryColor);
+	aspect-ratio: 1/1;
+}
+
+@media (max-width: 768px) {
+	section#hero .sliderContent > :first-child {
+		margin-top: 2rem;
+		width: 100%;
+		text-align: center;
+		justify-content: center;
+	}
+
+	section#hero .sliderContent > :first-child .callToAction {
+		justify-content: center;
+	}
+
+	section#hero .swiper .CarouselControllers {
+		justify-content: center;
+		flex-direction: row-reverse;
+		margin-top: 2rem;
+		position: relative;
+		top: 0%;
+		left: 0;
+		transform: translateY(0%);
+		z-index: 10;
+	}
+}
+
+/* End HeroSection */
+
+/* Start services */
+
+section#services .service img {
+	width: 100%;
+	height: 100%;
+}
+
+section#services .service .hoverLayout {
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(to top, var(--secondaryColor-50) 0%, transparent 30%);
+
+	top: 0;
+	left: 0;
+	transition: all 0.5s ease;
+}
+
+section#services .service:hover .hoverLayout {
+	background: var(--secondaryColor-50);
+
+	top: 0;
+	left: 0;
+}
+
+section#services .service .hoverLayout a .icon {
+	width: 5rem;
+	aspect-ratio: 1/1;
+	background-color: var(--primaryColor);
+}
+
+section#services .service:hover .hoverLayout a .icon:hover {
+	background-color: var(--primaryColor-s-10);
+}
+
+section#services .service .hoverLayout a {
+	transition: all 0.5s ease;
+	color: var(--whiteColor);
+	text-decoration: none;
+	position: absolute;
+	top: -50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+section#services .service:hover .hoverLayout a {
+	top: 50%;
+}
+
+section#services .service:hover .title {
+	bottom: -50%;
+}
+
+section#services .service .title {
+	bottom: 5%;
+	left: 5%;
+	color: var(--whiteColor);
+	transition: all 0.5s ease;
+}
+
+section#services .services .service {
+	aspect-ratio: 2/1;
+}
+
+/* End services */
+
+/* Start Features */
+section#features {
+	background-color: var(--secondaryColor);
+}
+
+section#features .feature .icon {
+	min-height: 5rem;
+}
+
+section#features .feature h5 {
+	text-transform: capitalize;
+}
+
+/* End Features */
+
+/* Start client */
+section#client .clientAvatar {
+	width: 13rem;
+	aspect-ratio: 1/1;
+	margin: 0 auto;
+}
+
+section#client .clientAvatar > img {
+	width: 100%;
+	height: 100%;
+}
+
+section#client .swiper-pagination-bullet {
+	width: 4rem;
+	height: 0.8rem;
+	border-radius: 10px;
+}
+
+section#client .swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+	bottom: 20px;
+}
+
+/* End client */
+
+/* Start Result */
+section#results {
+	color: var(--whiteColor);
+	background-color: var(--secondaryColor);
+}
+
+section#results .resultImg {
+	width: 100%;
+	height: 100%;
+}
+
+section#results .sectionTitle::after {
+	top: -0.5rem;
+	left: 1.2rem;
+}
+
+/* End Result */
+
+/* Start contact */
+section#contact form {
+	width: 100%;
+}
+
+section#contact iframe {
+	width: 100%;
+	aspect-ratio: 1/1;
+}
+
+section#contact form input:not([type="submit"]),
+section#contact form textarea {
+	outline: none;
+	border: none;
+	padding: 1rem;
+	margin-bottom: 1rem;
+	border: 1px solid var(--primaryColor-50);
+	color: var(--blackColor);
+}
+
+section#contact form input:not([type="submit"]):focus,
+section#contact form textarea:focus {
+	border-width: 2px;
+	border-color: var(--primaryColor);
+}
+
+/* End contact */
+
+/* Start footer */
+footer {
+	background-color: var(--blackColor);
+	color: var(--whiteColor);
+}
+footer .menus a,
+footer .usefulLinks a {
+	text-decoration: none;
+	color: var(--whiteColor);
+}
+
+/* End footer */
+
